@@ -1,0 +1,114 @@
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Variable</th>
+            <th scope="col">Pipe</th>
+            <th scope="col">descripcion</th>
+            <th scope="col">Producto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"> {{nombre}} </th>
+            <td> uppercase</td>
+            <td> convierte en mayuscula el texto</td>
+            <td> {{nombre | uppercase}}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{nombre}} </th>
+            <td> lowercase</td>
+            <td> convierte en minuscula el texto</td>
+            <td> {{nombre | uppercase | lowercase}}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{nombre}} </th>
+            <td> slice:0:3 </td>
+            <td> hace un substring</td>
+            <td> {{nombre | slice:0:3 }}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{arreglo}} </th>
+            <td> slice:2:5 </td>
+            <td> hace un substring</td>
+            <td> {{arreglo | slice:2:5 }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3> uso de slice con array</h3>
+      array {{arreglo}} substring desde 3 hasta el 7
+      <ul>
+          <li *ngFor='let campo of arreglo | slice:3:7'> {{campo}} </li>
+      </ul>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Variable</th>
+            <th scope="col">Pipe</th>
+            <th scope="col">descripcion</th>
+            <th scope="col">Producto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"> {{pi}} </th>
+            <td> number</td>
+            <td> permite formatear numeros, cantidad entero, cantidad decimal minimo y maximo etc, number:'1.0-2' dice q muestre un numero en la parte entera, y en la decimal como minimo 0 decimales y maximo 2</td>
+            <td> {{pi | number:'1.0-2' }}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{observable }} </th>
+            <td> Async </td>
+            <td> Permite recibir data que llegara en una cantidad de tiempo indeterminado, al llegar se coloca automaticamente </td>
+            <td> {{observable | async }}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{fechaActual }} </th>
+            <td> date </td>
+            <td> Permite convertir fechas en formatos esperados </td>
+            <td> {{fechaActual | date }}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{fechaActual }} </th>
+            <td> date:'d/MM/yyyy' </td>
+            <td> Permite convertir fechas en formatos esperados </td>
+            <td> {{fechaActual | date:'d/MM/yyyy' }}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{fechaActual }} </th>
+            <td> date:"'dia' d', mes 'MM ', ano' yyyy" </td>
+            <td> Permite convertir fechas en formatos esperados </td>
+            <td> {{fechaActual | date:"'dia' d', mes 'MM ', ano' yyyy" }}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{nombre }} </th>
+            <td> remplazaEspacioPorPiso </td>
+            <td> remplaza los espacios en blanco por un _</td>
+            <td> {{nombre | remplazaEspacioPorPiso }}</td>
+          </tr>
+          <tr>
+            <th scope="row"> {{clave }} </th>
+            <td>
+                ocultaClave {{mostrar}}
+                <button (click)="mostrar=!mostrar" class="btn btn-primary" > mostar/ ocultar</button>
+            </td>
+            <td> reemplaza el numero de caracteres de la clave por *</td>
+            <td> {{clave | ocultaClave:mostrar }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Uso de DOM SEGURO YOUTUBE ETC</h3>
+      hace que angular determine que nuestra url pasada como variable es segura <br>
+      <iframe width="560" height="315" [src]="video | domSeguro:'https://www.youtube.com/embed/' " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
